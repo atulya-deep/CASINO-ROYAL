@@ -1,0 +1,31 @@
+step 1: START
+step 2: Declare 12 funtions, play(), turn(), hit(), *cface(), *csuit(), cval(), bet(), chackAce(), initdeck(), shuffle(), quit(), blackjack_main()
+step 3: declare  4 variables balance, pot, deck[52], sdeck[52]
+step 4:
+				(inside play())
+	step 4.01: balance=500 
+	step 4.02: a while loop (play until you have 0 balance)
+				(inside turn())
+	step 4.03: funtion to determine by completing the commands who is the winner by checkig dealer's and your cards
+				(inside hit ())
+	step 4.04: function to draw the next card, from the array of randomly generated cards.
+	      (inside cface())
+  step 4.05: funtion to tell the card number
+        (inside *csuit())
+  step 4.06: funtion to tell he card suit
+				(inside cval())
+  step 4.07: function to calculate the value of the randomly generated card
+      
+				(inside bet())
+	step 4.08: Funtion to take the bet amount
+				(inside checkAce())
+	step 4.09: Funtion to ask if you got an ace, then whatvalue do you want to take it as (1 or 11)
+				(inside initdeck())
+	step 4.10: funtion to input the deck of cards
+  		  (inside shuffle())
+	step 4.11: function to shuffle the randomly generated deck of cards.
+				(inside quit())
+	step 4.12: to quit the BlackJack game and return to the menu for the choice of games.
+				(inside blackjack_main())
+	step 4.13:Funtion to start the blackjack game while using the above mentioned funtions
+step 5: END

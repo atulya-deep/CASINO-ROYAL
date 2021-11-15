@@ -1,0 +1,19 @@
+Step 1: START
+Step 2: Declare three function slot_fn(),chip_calc(),disp(),slots_main()
+      (in slots_fn())
+Step 3:
+	step 3.1: delcare 6 variable i,j,a,ifg=0,choice=1,rl=1
+	Step 3.2: do while loop (to keep the game running until chips is equal to 0 or the user enters exit)[this funtion calls chip-calc(), and disp() too]
+      (in chip_calc())
+Step 4: a function to calculate the winnings according to the reward pattern
+      (in disp())
+Step 5: Output rolled is displayed
+      (in slots_main())
+Step 6:To print slots
+Step 7:declare 6 variables name,startcommand,flag,sl,start_command
+   Step 7.1:Input name
+   Step 7.2: chips=10000
+Step 8:  a for loop (to compare startcommand with "Start" )    
+Step 9: if sl!=5 => flag=1 
+Step 10: if flag==0 =>call slot_fn()
+Step 11: END 

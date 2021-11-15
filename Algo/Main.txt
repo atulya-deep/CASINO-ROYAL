@@ -1,0 +1,9 @@
+step 1: START
+step 2: Declare 2 variables choice and name[50]
+step 3: Print the title, "CASINO ROYALE"
+step 4: Accept the name of the user
+step 5: Do while (choice!= 4)
+	step 5.1: Print the menu of the 3 games, for the user to choose
+	step 5.2: Accept the choice from the user
+	step 5.3: Swith case block to start the game chosen by the user
+step 6: END 

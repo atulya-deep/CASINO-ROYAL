@@ -1,0 +1,14 @@
+Step 1:  START
+Step 2:  DECLARE 3 funtions print_title(), spin_roulette(),roulette_main() 
+		(inside print_title())
+Step 3: To Print "ROULETTE"
+		(inside spin_roulette())
+Step 4: Funtion to get a random number between 1 to 36
+		(inside roulette_main())
+step 5:
+	step 5.1: DEclare 11 variables betmode, straightbet, cashbet, parity, number, balance, R, B, colorbet[1],red[18]={1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36},black[18]={2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35}
+	step 5.2:	call print_title()
+	step 5.3: print Insrusctions for game
+	step 5.4:	balance=10000
+	step 5.5:	A do while loop (to keep the game going as long as you have cash, and to slect gamemode and place bets, and win or loose according to your luck)
+step 6: END

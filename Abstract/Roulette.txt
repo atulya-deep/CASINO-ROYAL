@@ -1,0 +1,25 @@
+*********************************************************************************************************
+Application title:    Roulette
+******************************************************************************************************************************************************************************************************************
+Abtract:	
+Roulette is a game played with a large wheel that contains either 37 or 38 pockets. These stops are numbered from 0 to 36, while the American roulette wheel also contains a 00 pocket. All the pockets are all colored; the zeroes are green, while the other spots are evenly divided between 18 red and 18 black pockets.
+
+The dealer spins a ball on the outer rim of the wheel, after which it will eventually fall into one of the numbered spaces. The object for the player is to guess what number the ball will land in.
+
+Before each spin, players have the opportunity to place bets around the roulette table. Players can bet on individual numbers or virtually any combination of numbers.
+
+Once the ball falls into a pocket and rests there, the dealer will call out the winning number as well as the color of the pocket it landed in. Markers are typically used to protect winning bets, after which all losing bets are swept off the table. The dealer will pay all winning bets and, once all of the payouts are completed, players may place bets for the next spin.
+
+
+******************************************************************************************************************************************************************************************************************
+
+Rules of the game:
+There are 3 types of bets you can make:
+1) Straight-up bet: Choose a single number. High risk, high payout! (35 to 1)
+2) Red or black: Choose a color.(1 to 1)
+   Red numbers are:  1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36
+   Black numbers are: 2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35
+3) Odd or even: Choose odd or even (1 to 1) 
+********************************************************************************************************************************************
+When a winning number and color is determined by the roulette wheel, the dealer will place a marker, also known as a dolly, on that winning number on the roulette table layout. When the dolly is on the table, no players may place bets, collect bets, or remove any bets from the table. The dealer will then sweep away all other losing bets either by hand or rake, and determine all of the payouts to the remaining inside and outside winning bets. When the dealer is finished making payouts, the marker is removed from the board where players collect their winnings and make new bets. The winning chips remain on the board.
+********************************************************************************************************************************************

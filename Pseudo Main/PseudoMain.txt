@@ -1,0 +1,613 @@
+Pseudo Code for main:
+  FUNCTION main()
+		USE a variable choice of integer data type
+		PRINT the title, "CASINO ROYALE", by using *s
+    USE  a charcater array name[50]
+		PRINT "Enter your name: "
+		ACCEPT name[50]
+		PRINT "We have 3 superb fun games for you all, to test your luck and Shine your fortune!"
+		DO
+			choice=0;
+			PRINT "1] Blackjack"
+			PRINT "2] Roulette"
+			PRINT "3] Slots"
+			PRINT "4] Exit"
+			PRINT "Choose 1,2 or 3 in order to play the respective games and 4 to exit Casino Royale > "
+      ACCEPT choice from the user
+			SWITCH(choice)
+				CASE 1: call the funtion BlackJack_main()
+                The program control comes out of the switch construct
+				CASE 2: call the function roulette_main()
+                The program control comes out of the switch construct
+				CASE 3: call the function slots_main()
+								The program control comes out of the switch construct
+				CASE 4: PRINT "Thanks for playing!! Goodbye!!"
+                PRINT "_________________________________________________________________________"
+                The program control exits with the exit code 0.
+								The program control comes out of the switch construct
+				DEFAULT: PRINT "Enter a value between 1,2,3, and 4"
+                The program control comes out of the switch construct
+				
+			PRINT "_________________________________________________________________________"
+		WHILE(choice!=4)
+    The function returns 0.
+	ENDFUNCTION main()
+
+Pseudo Code for the header files of the three games:
+
+1] Pseudo Code of BlackJack.h :
+	  USE Global Variables:
+      balance, pot,flag230 of type integer
+      deck and sdeck of type int[]
+    FUNCTION BlackJack_main()
+        PRINT "Welcome to my BlackJack Simulator!"
+        PRINT the title, "BlackJack", by using *s
+        PRINT "Below are the basic rules:"
+        PRINT "- Beat the dealer's  hand without going over 21.\n- Face cards are worth 10, Aces are worth 1 or 11, whichever makes a better hand.\n- Each player starts with two cards, and one of the dealer's cards is hidden until the end.\n- Type 'hit' to ask for another card. Type 'stand' to hold your total and end your turn.\n- If you go over 21 you bust, and the dealer wins regardless of his hand.\n- If you are dealt 21 from the start (Ace & 10), you got a blackjack. If you get a blackjack, you win 2 times the amount of your bet automatically, unless the dealer also gets a blackjack, in which case it is a push."
+        PRINT "Remember: Type 'hit' to get another card, and 'stand' to hold. At the beginning of the round, type 'bet' followed by the quantity you want to bet (i.e. 'bet 50')."
+        PRINT "Type 'play' to begin, and 'quit' to return back to the choice. At any time, you may type 'help' to get a list of valid commands."
+        ACCEPT the command in input[6]
+        IF input[6] = "play", The play() function is called
+        IF input[6] = "quit", 
+            flag230 = 0
+            The quit() function is called
+            IF(flag230 = 1), the BlackJack_main() returns 0
+        The BlackJack_main() returns 0
+    ENDFUNCTION BlackJack_main()
+
+    FUNCTION play()
+      PRINT "Lets start you off with 500 credits."
+      balance = 500
+      flag230 = 0
+      WHILE(balance>0)
+        IF(flag230!=1), the bet() function is called
+        IF(flag230!=1), the initdeck() function is called
+        IF(flag230!=1), the shuffle() function is called
+        IF(flag230!=1), the turn() function is called
+        IF(flag230==1), the program control comes out of the loop
+      END OF WHILE
+      IF(flag230!=1), PRINT "Sorry, it looks like you lost! Type 'play' to play another game.
+      ELSE 
+        The program control returns to where the function was called
+    ENDFUNCTION play()
+
+    FUNCTION turn()
+      d1=hit function called and address of inc is sent to it
+      *cn1= csuit function is called and d1 is passed to it
+      *cf1=cface function is called and d1 is passed to it
+      cv1=cval function is called and d1 is passed to it
+      PRINT "You got a (cf1) of (cn1) worth (cv1), and "
+      d2=hit function called and address of inc is sent to it
+      *cn2= csuit function is called and d2 is passed to it
+      *cf2=cface function is called and d2 is passed to it
+      cv2=cval function is called and d2 is passed to it
+      PRINT "a (cf2) of (cn2) worth (cv2)"
+      d3=hit function called and address of inc is sent to it
+      *cn3= csuit function is called and d3 is passed to it
+      *cf3=cface function is called and d3 is passed to it
+      cv3=cval function is called and d3 is passed to it
+      PRINT "The dealer's face up card is a (cf3) of (cn3) worth (cv3), and has XX."
+      d4=hit function called and address of inc is sent to it
+      *cn4= csuit function is called and d4 is passed to it
+      *cf4=cface function is called and d4 is passed to it
+      cv4=cval function is called and d4 is passed to it
+      USE ptotal=cv1+cv2
+      USE dtotal=cv3
+      checkAce function is called and cv1,cv2,address of ptotal is passed to it
+      PRINT "You have a total of (ptotal) points, and the dealer has (dtotal)."
+    	IF(ptotal==21)
+        PRINT "Congrats! You got a blackjack!! Your payout is 2-to-1, (pot*2)"
+        balance=balance+(pot*2)
+      ELSE
+        USE  a character array input[6]
+        ACCEPT the command from the user
+        WHILE(input != "stand")
+          IF(input == "hit")
+            val= the hit function is called and the address of inc is passed to it
+            *ns= the csuit function is called and val is passed to it
+            *nf= the cface function is called and val is passed to it
+            nv= the cval function is called and val is passed to it.
+            ptotal = ptotal+nv
+            PRINT " You got a (nf) of (ns) worth (nv)"
+            IF(ptotal <21)
+							IF(nv==1)
+                IF(ptotal == 21)
+                  PRINT "Congrats! You got BLACKJACK! Payout is 2-to-1."
+                  balance+=pot*2
+                  program control comes out of the loop
+                ELSE 
+                  PRINT "You've got an ace. Choose whether you want to make it count as 1 or 11."
+                  ACCEPT the command from the user
+                  IF(input==11)
+                    ptotal+=10
+						ELSE IF(ptotal==21)
+							PRINT "You've got a BLACKJACK"
+							program control comes out of the loop
+						ELSE
+              PRINT "Oh no, you've busted with (ptotal). Try Again!!"
+              program control comes out of the loop
+					ELSE IF(input = "help")
+						PRINT "Type 'hit' to be dealt another card. Type 'stand' to hold."
+					ELSE IF(input= "quit")
+						quit funtion is called
+					ELSE
+					PRINT "Invaild command, try again."
+				PRINT "Your new total is (ptotal)"
+				ACCEPT the command from the user.
+      IF(ptotal<21)
+        PRINT "The dealer's flips a (cf4) of (cn4) worth (cv4)
+        dtotal+=cv4
+        IF(cv4==1)
+          IF(dtotal+11 < 21)
+            dtotal += 10
+        IF(dtotal>=16)
+          PRINT "The dealer stands with (dtotal)"
+        WHILE(dtotal<16)
+          val=hit function is called and address of inc is passed to it
+          *ns=csuit function is called val is passed to it
+          *nf=cface function is called and val is passed to it
+          nv=cval function is called and val is passed to it
+          dtotal += nv
+          PRINT "The dealer got a (nf) of (ns) worth (nv)
+          IF(dtotal<16)
+            IF(nv==1)
+              IF(dtotal+11<21)
+                dtotal +=10
+          ELSE IF(dtotal == 21)
+            PRINT "The dealer just got 21."
+            The program control comes out of the loop statement
+          ELSE IF(dtotal > 21)
+            PRINT "The dealer busted with (dtotal)! You win!"
+            The program control comes out of the loop statement
+          ELSE
+            PRINT "The dealer stands with (dtotal)"
+            The program control comes out of the loop statement
+          PRINT "The dealer's new total is (dtotal)"
+        IF(dtotal<ptotal)
+          PRINT "You beat the dealer! Your payout is (pot*2).
+          balance += (pot*2)
+        ELSE IF(dtotal==ptotal)
+          PRINT "Its a tie! Push pot, 1-to-1 payout of ()."
+				ELSE IF (dtotal>ptotal&&dtotal<=21)
+					PRINT "Looks like the dealer won"
+				ELSE
+					PRINT "You beat the dealer, your payout is (pot*2)"
+					balance+=pot*2
+			IF (balance>0)
+				PRINT "Your new balance is (balance)"
+			PRINT "_________________________________________________________________________"
+		ENDFUNCTION turn()
+			
+  	FUNCTION checkAce(int v1, int v2, int *a1)  
+			IF(v1==1||v2==1)
+				USE the variable input of interger data type.
+				IF(v1 == 1 && v2 == 1)
+					v1=11
+					v2=1;
+					*a1=12;
+					PRINT ""Since you got 2 Aces, we set one to be worth 11 and the other to be worth 1."    
+				ELSE IF(v1 == 1 || v2 == 1)
+					IF (v1+10+v2 ==21)
+						*a1=21;
+					ELSE	
+						PRINT "You've got an ace. Choose whether you want to make it count as 1 or 11."
+						ACCEPT the input
+						IF(input==11)
+						*a1+=10
+		ENDFUNCTION 
+    
+    FUNCTION cval(int v)
+      USE a variable a of the integer data type.
+      IF(((v%13)+1)<10)
+        a=v%13+1
+      ELSE
+        a=10
+      The function returns a to the calling function
+    ENDFUNCTION cval(int v)
+
+    FUNCTION *csuit(int v)
+      v=v%4
+      SWITCH(v)
+        CASE 0: The function returns "Hearts".
+        CASE 1: The function returns "Clubs".
+        CASE 2: The function returns "Diamonds".
+        CASE 3: The function returns "Spades".
+      The function returns 0 to the calling function
+    ENDFUNCTION *csuit(int v)
+
+    FUNCTION *cface(int v)
+      v = v%13+1
+      USE a variable *output of the character data type
+      SWITCH(v)
+        CASE 1: output = "Ace"
+                The program control comes out of the switch construct
+        CASE 2: output = "Two"
+                The program control comes out of the switch construct
+        CASE 3: output = "Three"
+                The program control comes out of the switch construct
+        CASE 4: output = "Four"
+                The program control comes out of the switch construct
+        CASE 5: output = "Five"
+                The program control comes out of the switch construct
+        CASE 6: output = "Six"
+                The program control comes out of the switch construct
+        CASE 7: output = "Seven"
+                The program control comes out of the switch construct
+        CASE 8: output = "Eight"
+                The program control comes out of the switch construct
+        CASE 9: output = "Nine"
+                The program control comes out of the switch construct
+        CASE 10: output = "Ten"
+                The program control comes out of the switch construct
+        CASE 11: output = "Jack"
+                The program control comes out of the switch construct
+        CASE 12: output = "Queen"
+                The program control comes out of the switch construct
+        CASE 13: output = "King"
+                The program control comes out of the switch construct
+      The function returns output to the calling function.
+    ENDFUNCTION *cface(int v)
+      
+		FUNCTION quit()
+			PRINT "Are you sure you want to quit? Type 'y' or 'n'."
+			USE a character array, input[6]
+			ACCEPT input
+			IF (strcmp(input,"y")==0)
+				PRINT "GOODBYE!!!"
+				The funtion returns a value 0
+			ELSE 
+				PRINT "Quit Cancelled"
+			The funtion returns a value 0
+		ENDFUNCTION quit()
+
+		FUNCTION hit(int *i)
+			USE an integer variable a = sdeck[*i]
+			*i=*i+1;
+		  the funtion returns a value 0
+		ENDFUNCTION hit()
+
+		FUNCTION bet()
+			USE a character array, input[6]
+			USE a variable of integer type val, flag67=1;
+			PRINT "Enter an amount you would like to bet."
+			DO
+				ACCEPT input
+				IF (strcmp(input,"bet")==0)
+					ACCEPT val
+					IF (val>balance)
+						PRINT "Enter a bt, which is less than your total balanceleft."
+						The program control goes to the next iteration of the loop
+					balance-=val;
+					PRINT "You have made a bet of (val). Good Luck!"
+					pot=val;
+					flag67=0
+          The function returns 0
+        ELSE IF(strcmp(input,"quit")==0)
+					flag230=0;
+					the quit() funtion is called
+					flag67=0;
+					if (flag230==1)
+					The function returns 0
+	        ELSE IF(strcmp(input,"bet")!=0 && strcmp(input,"quit")!=0)
+            PRINT "Invalid Entry. Please Enter "bet (Amount)" or quit"
+			WHILE(strcmp(input,"quit")!=0)
+      The Function returns 0
+		ENDFUNCTION bet()
+		
+    FUNCTION initdeck()
+      USE a variable i of the integer data type
+      FOR(i=0;i<52;i++)
+        deck[i]=i+1
+      END of FOR
+    ENDFUNCTION initdeck()
+
+    FUNCTION shuffle()
+      USE a variable i of the integer data type
+      FOR(i=0;i<52;i++)
+        sdeck[i] = deck[i];
+      END OF FOR
+      i=0
+      FOR(i=CARDS-1;i>0;i--)
+        USE an integer j = A randomly generated number between i and 1.
+        USE an integer n = sdeck[i]
+        sdeck[i] = sdeck[j]
+        sdeck[j] = n
+      END of FOR
+    ENDFUNCTION shuffle()
+
+
+2] Pseudo Code of Roulette.h :
+    FUNCTION roulette_main()
+      USE variables betmode,straightbet,cashbet,parity,number and balance, which are of the integer type.
+      USE variables R and B, which are of character data type
+      USE an array colourbet which is of char[] data type.
+      USE an array red[18]={1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36}
+      USE an array black[18]={2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35}
+      The print_title() function is called
+      USE three variables flag=0,sl=0 and i of integer data type.
+      USE  a character array start_command[5]={'S','t','a','r','t'} and startcommand[10].
+      Print "To continue, please type Start and to return to the choice of games, enter Exit".
+      ACCEPT the command from the user in startcommand
+      sl=strlen(startcommand);
+	    FOR(i=0;i<4;i++)
+        IF(start_command[i]!=startcommand[i])
+          flag=1;
+          break;
+      END OF FOR
+      IF(sl!=5)
+        flag=1;
+      IF(flag==0)
+        flag=1;
+      ELSE
+        PRINT "GOODBYE!!!"
+        The Roulette_main() function returns 0.
+      PRINT "You have been granted 10,000 chips by the gods of Gambling on entering the Casino".
+      balance=10000
+      DO
+        PRINT "There are 3 types of bets you can make:"
+	      PRINT "1)Straight-up bet: Choose a single number. High risk, high payout! (35 to 1)"
+	      PRINT "2)Red or black: Choose a color.(1 to 1)"
+        PRINT "Red numbers are  1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36"
+        PRINT "Black numbers are 2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35" 
+	      PRINT "3)Odd or even: Choose odd or even (1 to 1)
+        PRINT "4)Exit"
+        IF(betmode==1)
+          printf "Going for the big money, eh?"
+        IF(betmode==1)
+          	PRINT "Going for the big money, eh?"
+		DO
+			PRINT "Enter a number between 1-36 you'd like to bet on> "
+      			ACCEPT the choice from the user, in straightbet.
+      			IF(straightbet<1||straightbet>36)
+      				PRINT "Invalid Entry!! Enter a number between 1 anD 36.
+      		WHILE(straightbet<1||straightbet>36)
+		PRINT "Now how much money are you willing to risk? Payout is 35 to 1> "
+      		ACCEPT the entry from the user in cashbet
+      		PRINT "You have bet (cashbet) chips on the number (straightbet)" 
+      		PRINT "Press ENTER to spin the roulette. Keep your fingers crossed!" 
+            number=spin_roulette();
+      		IF (number==straightbet)
+                   balance += (cashbet*35);
+          	 	PRINT "Winner Winner! You now have (balance) chips in your pocket"
+      		ELSE
+        		balance -= cashbet;
+         		PRINT "Sorry. You've lost (cashbet). Your new balance is (balance) " 
+        	PRINT "__________________________________________________________" 
+        
+	ELSE IF(betmode==2)
+		PRINT “Alright pick a color. Choose RED or BLACK> "
+		ACCEPT the choice of user in colourbet
+		IF(colorbet is R or colorbet is r)
+			PRINT “Now how much money are you willing to risk? Payout is 1 to 1> "
+			ACCEPT the value entered by the user in cashbet
+			PRINT “you have bet (cashbet) chips on the colour RED”
+		ELSE IF(colorbet is B or colorbet is b)
+			PRINT “Now how much money are you willing to risk? Payout is 1 to 1> "
+			ACCEPT the value entered by the user in cashbet
+			PRINT “you have bet (cashbet) chips on the colour BLACK”
+		ELSEE
+			PRINT “32mU have not bet on any color. Please stand asied and wait for the result.”
+		PRINT "Press ENTER to spin the roulette. Keep your fingers crossed!"
+            number=spin_roulette();
+
+
+		IF(colorbet is "R" or colorbet is "r")
+          		IF(number==1||number==3||number==5||number==7||number==9||number==12||number==14||number==16||number==18||number==19||number==21||number==23|number==25||number==27||number==30||number==32||number==34||number==36)
+				balance += cashbet;
+                		PRINT "Winner Winner! You now have (balance) in your pocket"
+              	ELSE
+                         balance -= cashbet;
+                		PRINT "Sorry. You've lost (cashbet). Your new balance is (balance)”
+		
+              ELSE IF(colorbet is "B" or colorbet is "b")
+			
+			IF(number==2||number==4||number==6||number==8||number==10||number==11||number==13||number==15||number==17||number==20||number==22||number==24||number==26||number==28||number==29||number==31||number==33||number==35)
+				balance += cashbet;
+                		PRINT "Winner Winner! You now have (balance) in your pocket"
+              	ELSE
+                         balance -= cashbet;
+                		PRINT "Sorry. You've lost (cashbet). Your new balance is (balance)”
+		PRINT "__________________________________________________________" 
+	ELSE IF(betmode==3)
+		PRINT “Alright enter 1 for odd or 2 for even. Choose wisely!>"
+		ACCEPT the choice from the user and store it in parity
+		PRINT “Now how much money are you willing to risk? Payout is 1 to 1> "
+		ACCEPT the choice from the user and store it in cashbet
+		IF(parity==1)
+          		PRINT "You have bet (cashbet) chips on odds"
+        	ELSE
+          		PRINT "You have bet (cashbet) chips on evens"
+        	printf("Press ENTER to spin the roulette. Keep your fingers crossed!"
+            number=spin_roulette()
+		IF (parity==1)
+          	      IF (number%2==1)
+                         balance += cashbet;
+              		PRINT "Winner Winner! You now have \033[1;33m%d\033[0m Chips in your pocket"
+			ELSE
+				balance -= cashbet;
+                		PRINT "Sorry. You've lost (cashbet) chips. Your new balance is (balance) chips"
+            	ELSE
+			IF(number%2==0)
+				balance += cashbet
+				PRINT “Winner Winner! You now have (balance) chips in your pocket"
+			ELSE
+				balance -= cashbet;
+                		PRINT "Sorry. You've lost (cashbet) chips. Your new balance is (balance) Chips"
+		PRINT "____________________________________________________________"
+	ELSE IF(betmode==4)
+		PRINT "GOODBYE!!!"
+		The Roulette_main() function returns 0.
+	ELSE
+		PRINT "You've entered a wrong choice”
+PRINT “Please Enter either 1, 2, 3 or 4."
+PRINT "____________________________________________________________"
+   WHILE(balance>0&&betmode!=4)
+   The Roulette_main() function returns 0.
+END OF Roulette_main()
+
+FUNCTION print_title()
+	PINT the title, “ROULETTE”, by using *s
+END OF print_title()
+
+FUNCTION spin_roulette()
+	USE variable number of integer type, which stores a randomly generated number
+	PRINT “The ball has landed on (number)”
+	The function spin_roulette() returns the value stored in number
+END OF spin_roulette()
+
+
+
+3] Pseudo Code of Slots.h:
+
+	USE a global variable chips, of the integer data type
+	FUNCTION slots_main()
+		PRINT the title, “SLOTS”, by using *s
+		USE variables i,flag=0 and sl=0, of the integer data type.
+		USE character arrays startcommand[10] and start_command[5]= {'S','t','a','r','t'}
+		PRINT “To continue please type Start and to return to the choice of games, enter Exit”
+		ACCEPT the command from the user in startcommand
+		sl=length of the string, stored in startcommand
+		FOR((i=0;i<4;i++)
+			IF(start_command[i]!=startcommand[i])
+				flag=1
+				break
+		END OF FOR
+		IF(sl!=5)
+			flag=1
+		IF(flag!=0)
+			PRINT “GOODBYE!!!”
+			The function slots_main() returns 0
+		ELSE
+			PRINT “You have been awarded 10000 chips for starting a new game!
+			chips=10000;
+			The slots_fn Function is called
+		The function slots_main() returns 0
+	END OF slots_main()
+	
+FUNCTION slots_fn()
+USE variables I,j,a,ifg=0,choice=1 and rl=0 of the integer data type
+	DO
+		USE character arrays ch[10], st[4]= {'R','o','l','l',} and ex[4]={'E','x','i','t',}
+		PRINT “Type Roll to play and Exit to Exit the slots game”
+		ACCEPT the command from the user and store it in ch
+		flag20=0
+		rl = length of the string, stored in ch
+		FOR
+			IF(ch[i]!=st[i])
+				ifg=1
+				choice=0
+				The program control comes out of the loop
+		END OF FOR
+		IF(rl!=4)
+			ifg=1
+		IF(ifg==1)
+			DO
+				IF(flag20!=0)
+					ACCEPT the command from the user and store it in ch
+				IF(ch = “EXIT”)
+					PRINT “GOODBYE!!!”
+					The slots_fn() function, returns 0;
+				ELSE IF(ch = “Roll”)
+					flag20=0
+					The program control comes out of the loop
+				ELSE
+					PRINT “You have entered a wrong choice. Enter either Roll, to play and Exit to Exit the Slots game”
+			WHILE(flag20!=0)
+		IF(flag20!=0)
+			The slots_fn() function, returns 0
+		USE a variable bet=0, of the integer data type
+		DO
+			ACCEPT the value entered by the user and store it in bet
+			IF(bet>chips)
+				PRINT “Enter an amount less than your chips!!”
+			PRINT “Enter the amount you want to bet”
+		WHILE(bet>chips)
+		chips-=bet
+		USE an integer array arr[3][6]
+		FOR(i=0;i<3;i++)
+			FOR(j=0;j<6;j++)
+				DO
+					A random integer is stored in arr[i][j]
+				WHILE(arr[i][j]<0||arr[i][j]>6)
+			END OF FOR
+		END OF FOR
+		The Function disp(arr) is called
+		USE the variables k,cd=0,ct=0,cq=0,cp=0,cj=0,count=0,chdl=0,x=0,size=6 of the integer data type
+		USE an integer array check[6]
+		FOR(i=0;i<6;i++)
+			check[i]=arr[1][i]
+		END OF FOR
+			FOR(i=0;i<size;i++)
+				FOR(j=i+1;j<size;) 
+					IF(check[j]==check[i])
+						FOR(k=j;k<size;k++)
+							check[k]=check[k+1];
+						END OF FOR
+						size—
+					ELSE
+						j++
+				END OF FOR
+			END OF FOR
+			USE variables cl=0 and temp=0, of the integer data type
+			FOR(i=0;i<size;i++)
+ 				cl=0
+    				temp=check[i]
+				FOR(j=0;j<6;j++)
+					IF(temp==arr[1][j])
+						cl++
+				END OF FOR
+				IF(cl==6)
+    					cj++
+    				ELSE IF(cl==5)
+    					cp++
+    				ELSE IF(cl==4)
+    					cq++
+    				ELSE IF(cl==3)
+    					ct++  
+    				ELSE IF(cl==2)
+    					cd++
+			END OF FOR
+			PRINT "Doubles: (cd)”
+  			PRINT "Triplets: %d\n",ct)
+  			PRINT "Quads: %d\n",cq)
+  			PRINT "Aces: %d\n",cp)
+  			PRINT "Jackpot: %d\n",cj)
+The function chip_calc(bet,cd,ct,cq,cp,cj) is called
+PRINT "Amount left: (chips) Chips"
+			PRINT "_____________________________________________________"
+		WHILE(chips>0)
+		The function slot_fn() returns 0.
+	END OF slot_fn()
+	
+	FUNCTION chip_calc(int bet,int cd, int ct,int cq, int cp, int cj)
+		USE variables win=0 and temp, of the integer data types
+		temp=(cd*0*bet*0.2)+(ct*bet*0.3)+(cq*bet*0.8)+(cp*bet*2)+(cj*bet*50);
+		IF(temp==0)
+			win=0
+		ELSE
+			win=temp+bet
+		chips+=win
+		PRINT “You won: (win) Chips”
+	END OF chip_calc(int bet,int cd, int ct,int cq, int cp, int cj)
+	
+	FUNCTION disp(int arr[3][6])
+		USE the variables i and j, of the integer data types
+		FOR(i=0;i<3;i++)
+			FOR(j=0;j<6;j++)
+				IF(i==1)
+					PRINT “(arr[i][j])”
+				ELSE IF(i==0 and j==0)
+					PRINT “(arr[i][j])”
+				ELSE IF(i==0 and j==5)
+					PRINT “(arr[i][j])”
+				ELSE IF(i==2 and j==0)
+					PRINT “(arr[i][j])”
+
+				ELSE IF(i==2 and j==5)
+					PRINT “(arr[i][j])”
+				ELSE
+					PRINT “(arr[i][j])”
+			END OF FOR
+			The cursor is taken to the next line
+		END OF FOR
+	END OF disp(int arr[3][6])
